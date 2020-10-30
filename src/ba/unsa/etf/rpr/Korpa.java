@@ -39,4 +39,12 @@ public class Korpa {
         return pomocni;
     }
 
+    public int dajUkupnuCijenuArtikala() {
+        int suma = 0;
+        for(int i = 0; i < brojArtikala; i++) {
+            suma = suma + artikli[i].getCijena();
+        }
+        return suma;
+    }
+
 }
