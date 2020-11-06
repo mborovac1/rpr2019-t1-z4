@@ -21,22 +21,21 @@ public class Supermarket {
     }
 
     public Artikl izbaciArtiklSaKodom(String kod) {
-        Artikl pomocni = new Artikl("pomocni", 1, "pomocni");
 
         for(int i = 0; i < brojArtikala; i++) {
             if(artikli[i].getKod().equals(kod)) {
-                pomocni = artikli[i];
+                Artikl temp = new Artikl(artikli[i].getNaziv(), artikli[i].getCijena(), artikli[i].getKod());
                 artikli[i] = null;
-                for(int j = i; j < brojArtikala - 1; j++) {
+                for(int j = i; j < brojArtikala; j++) {
                     artikli[j] = artikli[j + 1];
                 }
+                artikli[brojArtikala] = null;
                 brojArtikala = brojArtikala - 1;
-                // ne mora i-- jer piše u tekstu zadatka da su svi kodovi artikala različiti ... možemo odma break petlju
-                break;
+                return temp;
             }
         }
 
-        return pomocni;
+        return null;
     }
 
 }
